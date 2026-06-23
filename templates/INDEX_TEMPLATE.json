@@ -1,0 +1,87 @@
+{
+  "_comment": "index.json 参考模板 — 由 gen_index.py 自动生成，描述项目结构化索引。",
+  "_schema_version": "1.0",
+
+  "project": "my-project",
+  "generated_at": "2025-01-15T10:30:00Z",
+  "language": "go",
+  "root": "/path/to/project",
+
+  "packages": {
+    ".": {
+      "files": ["main.go"],
+      "file_count": 1,
+      "exports": [
+        {"kind": "func", "name": "main", "file": "main.go", "line": 12}
+      ],
+      "imports": []
+    },
+    "src/service": {
+      "files": ["user.go", "order.go", "payment.go"],
+      "file_count": 3,
+      "exports": [
+        {"kind": "func", "name": "NewUserService", "file": "user.go", "line": 20},
+        {"kind": "func", "name": "CreateUser", "file": "user.go", "line": 45},
+        {"kind": "func", "name": "FindByID", "file": "user.go", "line": 78},
+        {"kind": "type", "name": "UserService", "file": "user.go", "line": 15},
+        {"kind": "type", "name": "CreateUserRequest", "file": "user.go", "line": 10},
+        {"kind": "func", "name": "NewOrderService", "file": "order.go", "line": 18},
+        {"kind": "func", "name": "PlaceOrder", "file": "order.go", "line": 42},
+        {"kind": "type", "name": "OrderService", "file": "order.go", "line": 12}
+      ],
+      "imports": [
+        "src/db",
+        "src/cache",
+        "src/auth",
+        "fmt",
+        "context"
+      ]
+    },
+    "src/handler": {
+      "files": ["user_handler.go", "order_handler.go"],
+      "file_count": 2,
+      "exports": [
+        {"kind": "func", "name": "NewUserHandler", "file": "user_handler.go", "line": 15},
+        {"kind": "func", "name": "Register", "file": "user_handler.go", "line": 30},
+        {"kind": "func", "name": "Login", "file": "user_handler.go", "line": 55}
+      ],
+      "imports": [
+        "src/service",
+        "src/middleware",
+        "net/http"
+      ]
+    }
+  },
+
+  "entry_points": [
+    "main.go"
+  ],
+
+  "hotspots": [
+    {"file": "src/service/user.go", "recent_changes": 12},
+    {"file": "src/handler/user_handler.go", "recent_changes": 8},
+    {"file": "src/service/order.go", "recent_changes": 5}
+  ],
+
+  "risk_annotations": [
+    {
+      "file": "src/auth/token.go",
+      "line": 45,
+      "note": "勿改 RefreshToken 过期逻辑，与客户端硬编码耦合"
+    },
+    {
+      "file": "src/db/mysql.go",
+      "line": 120,
+      "note": "连接池参数经过压测调优，修改需重新压测"
+    }
+  ],
+
+  "stats": {
+    "total_files": 12,
+    "total_dirs": 5,
+    "total_lines": 3400,
+    "total_exports": 54
+  },
+
+  "content_hash": "a1b2c3d4e5f6a7b8"
+}
