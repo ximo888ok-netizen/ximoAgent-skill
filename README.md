@@ -84,7 +84,7 @@ python scripts/search_map.py list --map docs/ARCHITECTURE.md
 ## 项目结构
 
 ```
-project-map-skill/
+ximoAgent-skill/
 ├── SKILL.md                          # 技能说明（AI 读取入口）
 ├── README.md                         # 本文件
 ├── LICENSE                           # MIT
