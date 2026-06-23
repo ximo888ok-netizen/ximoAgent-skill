@@ -54,7 +54,7 @@
 将本目录复制到项目的 `.trae/skills/` 下：
 
 ```bash
-cp -r project-map-skill .trae/skills/project-map
+cp -r ximoAgent-skill .trae/skills/ximoAgent
 ```
 
 ### 2. 让 AI 初始化知识图谱
